@@ -1,0 +1,34 @@
+  console.log(inputValues.email);
+        console.log(inputValues.password);
+        const userPool = new CognitoUserPool(pooldetails);
+
+        const cognitoUser = new CognitoUser({ Username: inputValues.email, Pool: userPool });
+
+        const credentials = new AuthenticationDetails({
+            Username: inputValues.email,
+            Password: inputValues.password
+        });
+
+        cognitoUser.authenticateUser(credentials, {
+
+            onSuccess: function (result) {
+                console.log("Inside success");
+                console.log(result);
+                const userData = {
+                    email: result.idToken.payload.email,
+                    fullname: result.idToken.payload.given_name,
+                    cusno: result.idToken.payload["custom:cusno"]
+                }
+                ReactSession.set('email', userData.email);
+                ReactSession.set('name', userData.fullname);
+                ReactSession.set('user_details', userData);
+                ReactSession.set('isLoggedIn', true);
+                ReactSession.set('cipherkey', result.idToken.payload["custom:cipherkey"])
+
+                navigate("/login/security-question")
+            },
+            onFailure: function (err) {
+                alert(err.message);
+                console.log(err);
+            }
+        });

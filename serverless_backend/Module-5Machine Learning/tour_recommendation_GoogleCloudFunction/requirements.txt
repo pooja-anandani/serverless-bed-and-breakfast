@@ -1,0 +1,7 @@
+# Function dependencies, for example:
+# package>=version
+google-cloud-aiplatform
+protobuf
+nltk
+google-cloud-firestore
+pandas

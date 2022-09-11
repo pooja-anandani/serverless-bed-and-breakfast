@@ -1,0 +1,48 @@
+ const userPool = new CognitoUserPool(pooldetails);
+
+        let cusno = Math.random().toString().substring(2, 8);
+
+        // let cipherText = Math.random().toString().substring(2, 8);
+        let cipherText = Math.floor(Math.random() * 4) + 1;
+
+        console.log(cusno);
+
+        const attributeList = [
+            new CognitoUserAttribute({
+                Name: "email",
+                Value: inputValues.email,
+            }),
+            new CognitoUserAttribute({
+                Name: "given_name",
+                Value: inputValues.fullname,
+            }),
+            new CognitoUserAttribute({
+                Name: "custom:cusno",
+                Value: cusno.toString(),
+            }),
+            new CognitoUserAttribute({
+                Name: "custom:cipherkey",
+                Value: cipherText.toString(),
+            }),
+        ];
+
+        userPool.signUp(
+            inputValues.email,
+            inputValues.password,
+            attributeList,
+            null,
+            function (err, result) {
+
+                if (!err) {
+                    console.log(result);
+                    console.log("User register succesfully");
+                    ReactSession.set('email', inputValues.email);
+                    ReactSession.set('isLoggedIn', false);
+                    ReactSession.set('cipherkey', cipherText);
+                    navigate("/sign-up/security-question")
+                } else {
+                    console.log(err);
+                    console.log("error while registering user");
+                }
+            }
+        );

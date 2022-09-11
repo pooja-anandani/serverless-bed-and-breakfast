@@ -1,0 +1,64 @@
+{
+  "dishes": [
+    {
+      "dish_id": "101",
+      "dish_name": "Murgh Tikka Masala",
+      "price": "20.00"
+    },
+    {
+      "dish_id": "102",
+      "dish_name": "French Toast Combo",
+      "price": "10.00"
+    },
+    {
+      "dish_id": "103",
+      "dish_name": "Fish Moilee",
+      "price": "35.00"
+    },
+    {
+      "dish_id": "104",
+      "dish_name": "Vegie Omelet",
+      "price": "8.35"
+    },
+    {
+      "dish_id": "201",
+      "dish_name": "Banana Split",
+      "price": "11.00"
+    },
+    {
+      "dish_id": "202",
+      "dish_name": "Apple Strudel",
+      "price": "42.00"
+    },
+    {
+      "dish_id": "203",
+      "dish_name": "Sticky Toffee Pudding",
+      "price": "72.00"
+    },
+    {
+      "dish_id": "204",
+      "dish_name": "Pancakes",
+      "price": "7.35"
+    },
+    {
+      "dish_id": "301",
+      "dish_name": "Spring Water",
+      "price": "32.00"
+    },
+    {
+      "dish_id": "302",
+      "dish_name": "Lemonade, Lemon Squash",
+      "price": "18.00"
+    },
+    {
+      "dish_id": "303",
+      "dish_name": "Coke, Diet Coke, Coke Zero",
+      "price": "14.00"
+    },
+    {
+      "dish_id": "304",
+      "dish_name": "Sparkling Mineral Water",
+      "price": "38.35"
+    }
+  ]
+}
